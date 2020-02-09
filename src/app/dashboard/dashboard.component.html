@@ -1,0 +1,4 @@
+<div class="jumbotron d-flex">
+  <app-users-list [users]="userList"></app-users-list>
+  <app-edit-users (addUser)="addNewUser($event)" (removeUser)="deleteUser()"></app-edit-users>
+</div>
