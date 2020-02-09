@@ -1,0 +1,6 @@
+<div class="container mt-5">
+  <ul class="list-group">
+    <app-user-list-item *ngFor="let user of users" [user]="user" [textColor]="textColor"></app-user-list-item>
+  </ul>
+  <button class="btn btn-info" (click)="onClickToggle()">Toggle color</button>
+</div>
