@@ -1,0 +1,14 @@
+<div [ngSwitch]="displayMode">
+  <div class="jumbotron d-flex" *ngSwitchCase="1">
+    <app-users-list [users]="userList"></app-users-list>
+    <app-edit-users (addUser)="addNewUser($event)" (removeUser)="deleteUser()"></app-edit-users>
+  </div>
+  <h1 *ngSwitchCase="2" class="text-center mt-5">
+     Log in to see this content
+     <br>
+     <button class="btn btn-primary" routerLink="/login" routerLinkActive="routerLinkActive">
+      Login
+    </button>
+  </h1>
+  
+</div>

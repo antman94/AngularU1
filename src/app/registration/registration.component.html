@@ -1,0 +1,41 @@
+<div class="form-group mt-5">
+  
+  <form [formGroup]="registrationForm" (ngSubmit)="onClickSubmit()">
+    <h3 class="mb-3">Register</h3>
+
+    <label>
+      First name:
+      <input type="text" class="form-control mb-1" formControlName="firstName">
+      <span *ngIf="firstName.invalid && (firstName.touched||firstName.dirty)">
+        <p class="alert alert-danger">Invalid name</p>
+      </span>
+    </label>
+
+    <label>
+      Last name:
+      <input type="text" class="form-control mb-1" formControlName="lastName">
+      <span *ngIf="lastName.invalid && (lastName.touched||lastName.dirty)" >
+        <p class="alert alert-danger">Invalid lastname</p>
+      </span>
+    </label>
+
+    <label>
+      Email: 
+      <input type="email" class="form-control mb-1" formControlName="email">
+      <span *ngIf="email.invalid && (email.touched||email.dirty)" >
+        <p class="alert alert-danger">Invalid email</p>
+      </span>
+    </label>
+
+    <label>
+      Password:
+      <input type="password" class="form-control mb-1" formControlName="password">
+      <span *ngIf="password.invalid && (password.touched||password.dirty)">
+        <p class="alert alert-danger">Invalid password</p>
+      </span>
+    </label>
+
+    <button type="submit" class="btn btn-success mr-1" [disabled]="!registrationForm.valid">Create User</button>
+    <button type="button" class="btn btn-primary" (click)="onClickLogin()">Login with existing user</button>
+  </form>
+</div>

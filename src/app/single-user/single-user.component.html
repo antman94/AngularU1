@@ -1,0 +1,15 @@
+<div *ngIf="user" class="container d-flex justify-content-center mt-5">
+  <div class="card mt-5" style="width:400px">
+    <div class="card-header">
+      <h4 class="card-text  mt-1 font-weight-bold">{{user.username}} </h4>
+      <p class="card-text  mt-1">{{user.name}} </p>
+    </div>
+    <div class="card-body">
+      <p class="card-text  mt-2">Street: {{user.address.street}} </p>
+      <p class="card-text  mt-2">Zipcode: {{user.address.zipcode}} </p>
+      <p class="card-text mt-2">City: {{user.address.city}} </p>
+    </div>
+    
+  </div>
+
+</div>

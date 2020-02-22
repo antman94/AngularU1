@@ -1,0 +1,9 @@
+form {
+  width: 30%;
+  margin: auto;
+}
+
+
+.ng-invalid:not(Form).ng-touched{
+  border: 1px solid red;
+}

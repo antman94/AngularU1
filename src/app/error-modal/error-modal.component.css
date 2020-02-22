@@ -1,0 +1,8 @@
+.showModal {
+  display: block;
+  opacity: 1;
+}
+.hideModal {
+  display: none;
+  opacity: 0;
+}

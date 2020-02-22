@@ -1,0 +1,13 @@
+
+.input-req {
+  border: 1px solid red;
+  box-shadow: 1px 1px 5px black;
+
+}
+.p-req {
+  border-radius: 5px;
+}
+form {
+  width: 30%;
+  margin: auto;
+}

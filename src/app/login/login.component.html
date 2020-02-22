@@ -1,0 +1,42 @@
+
+<div [ngSwitch]="displayMode">
+  <div class="text-center mt-5 bg-light" *ngSwitchCase="1">
+    <h3>You are already logged in</h3>
+    <button (click)="onClickLogout()" class="btn-success">Log out</button>
+  </div>
+  <div class="form-group mt-5" *ngSwitchCase="2" >
+    <h3 class="text-center">Log in</h3>
+
+    <form (ngSubmit)="onClickLogin()" #loginForm="ngForm">
+      <div class=" mt-5">
+        <div>
+        <input name="email" class="form-control mb-2" placeholder="Email" 
+        [(ngModel)]="userModel.email" required email #inputEmail="ngModel"
+        [ngClass]="{'input-req' : inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)}"
+        >
+        </div>
+        <div *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)"> 
+          <p class="alert alert-danger p-req">Incorrect email</p>
+        </div>
+      <div>
+        <input name="password" type="password" class="form-control mb-2" placeholder="Password" 
+        [(ngModel)]="userModel.password" required password minlength="10" #inputPassword="ngModel"
+        [ngClass]="{'input-req' : inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)}"
+        >
+      </div>
+      <div *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)"> 
+          <p class="alert alert-danger p-req">Incorrect password</p>
+      </div>
+
+      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-success">Log In</button>
+      <button (click)="onClickRegister()" type="button" class="btn btn-primary m-1">Create new user</button>
+      
+      </div>
+    </form>
+  </div>
+  <div *ngSwitchCase="3">
+    <app-registration (onRegUser)="toggleLoginPage()"></app-registration>
+  </div>
+
+  <app-error-modal [toggleShow]='showError' [message]='errorMessage' (confirmShown)="toggleErrorModal()"></app-error-modal>
+</div>
